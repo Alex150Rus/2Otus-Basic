@@ -7,6 +7,8 @@ using UnityEngine.UI;
 internal sealed class GameController : MonoBehaviour
 {
     public Button attackButton;
+    public CanvasGroup buttonPanel;
+
     public Character[] playerCharacter;
     public Character[] enemyCharacter;
     Character currentTarget;
@@ -74,11 +76,13 @@ internal sealed class GameController : MonoBehaviour
                     break;
 
                 currentTarget.targetIndicator.gameObject.SetActive(true);
+                Utility.SetCanvasGroupEnabled(buttonPanel, true);
 
                 waitingForInput = true;
                 while (waitingForInput)
                     yield return null;
 
+                Utility.SetCanvasGroupEnabled(buttonPanel, false);
                 currentTarget.targetIndicator.gameObject.SetActive(false);
 
                 player.target = currentTarget.transform;
@@ -110,6 +114,8 @@ internal sealed class GameController : MonoBehaviour
     void Start()
     {
         attackButton.onClick.AddListener(PlayerAttack);
+        //выключаем в начале
+        Utility.SetCanvasGroupEnabled(buttonPanel, false);
         StartCoroutine(GameLoop());
     }
 }
