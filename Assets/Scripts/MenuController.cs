@@ -9,15 +9,18 @@ public class MenuController : MonoBehaviour
     {
         Main,
         Settings,
+        SelectLevel,
     }
 
     public CanvasGroup mainScreen;
     public CanvasGroup settingsScreen;
+    public CanvasGroup selectLevelScreen;
 
     void SetCurrentScreen(Screen screen)
     {
         Utility.SetCanvasGroupEnabled(mainScreen, screen == Screen.Main);
         Utility.SetCanvasGroupEnabled(settingsScreen, screen == Screen.Settings);
+        Utility.SetCanvasGroupEnabled(selectLevelScreen, screen == Screen.SelectLevel);
     }
 
     // Start is called before the first frame update
@@ -28,7 +31,17 @@ public class MenuController : MonoBehaviour
 
     public void StartNewGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Level1");
+    }
+
+    public void StartLevel(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void SelectLevel()
+    {
+        SetCurrentScreen(Screen.SelectLevel);
     }
 
     public void OpenSettings()
