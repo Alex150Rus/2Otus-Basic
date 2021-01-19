@@ -2,9 +2,11 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 internal sealed class GameController : MonoBehaviour
 {
+    public Button attackButton;
     public Character[] playerCharacter;
     public Character[] enemyCharacter;
     Character currentTarget;
@@ -40,14 +42,14 @@ internal sealed class GameController : MonoBehaviour
         return false;
     }
 
-    [ContextMenu("Player Attack")]
-    void PlayerAttack()
+    //[ContextMenu("Player Attack")]
+    public void PlayerAttack()
     {
         waitingForInput = false;
     }
 
-    [ContextMenu("Next Target")]
-    void NextTarget()
+    //[ContextMenu("Next Target")]
+    public void NextTarget()
     {
         int index = Array.IndexOf(enemyCharacter, currentTarget);
         for (int i = 1; i < enemyCharacter.Length; i++) {
@@ -107,6 +109,7 @@ internal sealed class GameController : MonoBehaviour
     
     void Start()
     {
+        attackButton.onClick.AddListener(PlayerAttack);
         StartCoroutine(GameLoop());
     }
 }
