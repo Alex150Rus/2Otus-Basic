@@ -1,18 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+    enum Screen
+    {
+        Main,
+        Settings,
+    }
+
+    public CanvasGroup mainScreen;
+    public CanvasGroup settingsScreen;
+
+    void SetCurrentScreen(Screen screen)
+    {
+        Utility.SetCanvasGroupEnabled(mainScreen, screen == Screen.Main);
+        Utility.SetCanvasGroupEnabled(settingsScreen, screen == Screen.Settings);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetCurrentScreen(Screen.Main);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartNewGame()
     {
-        
+        SceneManager.LoadScene("SampleScene");
     }
+
+    public void OpenSettings()
+    {
+        SetCurrentScreen(Screen.Settings);
+    }
+
+    public void CloseSettings()
+    {
+        SetCurrentScreen(Screen.Main);
+    }
+
+    public void ExitGame()
+    {
+        //в редакторе не срабатывает, только в билде
+        Application.Quit();
+    }
+
 }
