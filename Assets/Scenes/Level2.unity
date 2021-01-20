@@ -415,6 +415,7 @@ GameObject:
   - component: {fileID: 187091961}
   - component: {fileID: 187091964}
   - component: {fileID: 187091963}
+  - component: {fileID: 187091965}
   m_Layer: 5
   m_Name: ButtonPanel
   m_TagString: Untagged
@@ -521,6 +522,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!225 &187091965
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187091959}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &195951422
 GameObject:
   m_ObjectHideFlags: 0
@@ -4741,6 +4754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   optionsButtonsPanel: {fileID: 1267476625}
+  buttonsPanel: {fileID: 187091965}
 --- !u!114 &1672919446
 MonoBehaviour:
   m_ObjectHideFlags: 0
