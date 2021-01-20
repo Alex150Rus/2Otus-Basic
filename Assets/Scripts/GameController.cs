@@ -8,6 +8,8 @@ internal sealed class GameController : MonoBehaviour
 {
     public Button attackButton;
     public CanvasGroup buttonPanel;
+    public CanvasGroup wonPanel;
+    public CanvasGroup lostPanel;
 
     public Character[] playerCharacter;
     public Character[] enemyCharacter;
@@ -21,12 +23,12 @@ internal sealed class GameController : MonoBehaviour
 
     void PlayerWon()
     {
-        Debug.Log("Player won.");
+        Utility.SetCanvasGroupEnabled(wonPanel, true);
     }
 
     void PlayerLost()
     {
-        Debug.Log("Player lost.");
+        Utility.SetCanvasGroupEnabled(lostPanel, true);
     }
 
     bool CheckEndGame()
@@ -71,6 +73,7 @@ internal sealed class GameController : MonoBehaviour
         while (!CheckEndGame()) {
             foreach (var player in playerCharacter)
             {
+                if (player.IsDead()) continue;
                 currentTarget = FirstAliveCharacter(enemyCharacter);
                 if (currentTarget == null)
                     break;
@@ -96,6 +99,7 @@ internal sealed class GameController : MonoBehaviour
 
             foreach (var enemy in enemyCharacter)
             {
+                if (enemy.IsDead()) continue;
                 Character target = FirstAliveCharacter(playerCharacter);
                 if (target == null)
                     break;
@@ -116,6 +120,8 @@ internal sealed class GameController : MonoBehaviour
         attackButton.onClick.AddListener(PlayerAttack);
         //выключаем в начале
         Utility.SetCanvasGroupEnabled(buttonPanel, false);
+        Utility.SetCanvasGroupEnabled(wonPanel, false);
+        Utility.SetCanvasGroupEnabled(lostPanel, false);
         StartCoroutine(GameLoop());
     }
 }
