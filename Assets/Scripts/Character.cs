@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts;
+using System;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -25,6 +26,7 @@ public class Character : MonoBehaviour
         Fist,
     }
 
+    public PersonGroup Group;
     private Animator animator;
     private State state;
     public Weapon weapon;
