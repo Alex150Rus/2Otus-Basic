@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[AddComponentMenu("Game/AddHealth")]
 internal sealed class Health : MonoBehaviour
 {
     public float current;
