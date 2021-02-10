@@ -13,8 +13,13 @@ internal sealed class GameController : MonoBehaviour
 
     public Character[] playerCharacter;
     public Character[] enemyCharacter;
-    Character currentTarget;
-    bool waitingForInput;
+
+    public string WinSound = "Win";
+    public string LostSound = "Lose";
+
+    private Character currentTarget;
+    private bool waitingForInput;
+    private PlaySound _playSound;
 
     Character FirstAliveCharacter(Character[] characters)
     {
@@ -24,11 +29,13 @@ internal sealed class GameController : MonoBehaviour
     void PlayerWon()
     {
         Utility.SetCanvasGroupEnabled(wonPanel, true);
+        _playSound.Play(WinSound);
     }
 
     void PlayerLost()
     {
         Utility.SetCanvasGroupEnabled(lostPanel, true);
+        _playSound.Play(LostSound);
     }
 
     bool CheckEndGame()
@@ -123,5 +130,6 @@ internal sealed class GameController : MonoBehaviour
         Utility.SetCanvasGroupEnabled(wonPanel, false);
         Utility.SetCanvasGroupEnabled(lostPanel, false);
         StartCoroutine(GameLoop());
+        _playSound = GetComponent<PlaySound>();
     }
 }

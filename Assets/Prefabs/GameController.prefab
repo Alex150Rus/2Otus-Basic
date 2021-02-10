@@ -55,6 +55,8 @@ MonoBehaviour:
   enemyCharacter:
   - {fileID: 0}
   - {fileID: 0}
+  WinSound: Win
+  LostSound: Lost
 --- !u!82 &7353539855984813302
 AudioSource:
   m_ObjectHideFlags: 0
@@ -166,5 +168,5 @@ MonoBehaviour:
   dataSounds:
   - name: Win
     audioClip: {fileID: 8300000, guid: 3a3a611c6336a7647a8c1aa4fe94e042, type: 3}
-  - name: Lost
+  - name: Lose
     audioClip: {fileID: 8300000, guid: 15a1c53e5c8e3714dbca8b72c86350a7, type: 3}

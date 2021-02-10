@@ -5998,9 +5998,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2069988766668853273, guid: 065677daea5642d4a92bbeb77e815dd5,
         type: 3}
+      propertyPath: WinSound
+      value: Win
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069988766668853273, guid: 065677daea5642d4a92bbeb77e815dd5,
+        type: 3}
       propertyPath: wonPanel
       value: 
       objectReference: {fileID: 1469685853}
+    - target: {fileID: 2069988766668853273, guid: 065677daea5642d4a92bbeb77e815dd5,
+        type: 3}
+      propertyPath: LostSound
+      value: Lose
+      objectReference: {fileID: 0}
     - target: {fileID: 2069988766668853273, guid: 065677daea5642d4a92bbeb77e815dd5,
         type: 3}
       propertyPath: lostPanel
