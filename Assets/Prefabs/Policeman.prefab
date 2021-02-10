@@ -147,6 +147,8 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 20b377534885f8a4f8ef588309f51620, type: 3}
   - name: ShootHit
     audioClip: {fileID: 8300000, guid: ae63fc2598dac794f8afa2b355992339, type: 3}
+  - name: Die1
+    audioClip: {fileID: 8300000, guid: 6789299ea9ce460479ee356feb633e6a, type: 3}
 --- !u!114 &6044158552165691723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +177,11 @@ PrefabInstance:
         type: 3}
       propertyPath: runSpeed
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697664828200059437, guid: 73e1432563d8c1a48839445fb70ed3d9,
+        type: 3}
+      propertyPath: DieSoundName
+      value: Die1
       objectReference: {fileID: 0}
     - target: {fileID: 3697664828200059437, guid: 73e1432563d8c1a48839445fb70ed3d9,
         type: 3}

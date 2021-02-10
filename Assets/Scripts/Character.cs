@@ -34,6 +34,9 @@ public class Character : MonoBehaviour
     public string takeDamageShotDistSoundName = "TakeDamageShortDist";
     public string takeDamageLongDistSoundName = "TakeDamageLongDist";
     public string ShootHitSoundName = "ShootHit";
+    public string BatHitSoundName = "BatHit";
+    public string HandHitSoundName = "HandHit";
+    public string DieSoundName;
 
     private PlaySound _playSound;
     private Animator animator;
@@ -172,6 +175,7 @@ public class Character : MonoBehaviour
 
             case State.BeginAttack:
                 animator.SetTrigger(MeleeAttack);
+                if (_playSound) _playSound.Play(BatHitSoundName);
                 state = State.Attack;
                 break;
 
@@ -189,6 +193,7 @@ public class Character : MonoBehaviour
 
             case State.BeginPunch:
                 animator.SetTrigger(Punch);
+                if (_playSound) _playSound.Play(HandHitSoundName);
                 state = State.Punch;
                 break;
 
@@ -203,6 +208,7 @@ public class Character : MonoBehaviour
 
             case State.BeginDying:
                 animator.SetTrigger(Death);
+                if (_playSound) _playSound.Play(DieSoundName);
                 state = State.Dead;
                 break;
 
