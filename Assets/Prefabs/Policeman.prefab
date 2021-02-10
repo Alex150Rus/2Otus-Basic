@@ -142,7 +142,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataSounds:
   - name: DamageSound
-    audioClip: {fileID: 8300000, guid: 65e955753ec98f048a8edac491403be9, type: 3}
+    audioClip: {fileID: 8300000, guid: 45443a33689f4f04c804293db72b978c, type: 3}
+  - name: TakeDamageShortDist
+    audioClip: {fileID: 8300000, guid: 20b377534885f8a4f8ef588309f51620, type: 3}
+  - name: ShootHit
+    audioClip: {fileID: 8300000, guid: ae63fc2598dac794f8afa2b355992339, type: 3}
 --- !u!114 &6044158552165691723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,8 +173,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3697664828200059437, guid: 73e1432563d8c1a48839445fb70ed3d9,
         type: 3}
+      propertyPath: runSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697664828200059437, guid: 73e1432563d8c1a48839445fb70ed3d9,
+        type: 3}
       propertyPath: damageSoundName
       value: DamageSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697664828200059437, guid: 73e1432563d8c1a48839445fb70ed3d9,
+        type: 3}
+      propertyPath: distanceFromEnemy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697664828200059437, guid: 73e1432563d8c1a48839445fb70ed3d9,
+        type: 3}
+      propertyPath: takeDamageShotDistSoundName
+      value: TakeDamageShortDist
       objectReference: {fileID: 0}
     - target: {fileID: 4732045042435341939, guid: 73e1432563d8c1a48839445fb70ed3d9,
         type: 3}

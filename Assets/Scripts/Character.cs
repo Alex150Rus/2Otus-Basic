@@ -31,6 +31,9 @@ public class Character : MonoBehaviour
     public float runSpeed;
     public float distanceFromEnemy;
     public string damageSoundName = "DamageSound";
+    public string takeDamageShotDistSoundName = "TakeDamageShortDist";
+    public string takeDamageLongDistSoundName = "TakeDamageLongDist";
+    public string ShootHitSoundName = "ShootHit";
 
     private PlaySound _playSound;
     private Animator animator;
@@ -73,12 +76,24 @@ public class Character : MonoBehaviour
         state = newState;
     }
 
-    public void DoDamage()
+    public void TakeDamage()
     {
         if (IsDead())
             return;
 
-        if (_playSound) _playSound.Play(damageSoundName);
+        Character targetCharacter = target.GetComponent<Character>();
+
+        switch(targetCharacter.weapon)
+        {
+            case Weapon.Pistol:
+                if (_playSound) _playSound.Play(takeDamageLongDistSoundName);
+                break;
+            case Weapon.Bat:
+            case Weapon.Fist:
+                if (_playSound) _playSound.Play(takeDamageShotDistSoundName);
+                break;
+        }
+
         health.ApplyDamage(1.0f); // FIXME: захардкожено
         if (health.current <= 0.0f)
             state = State.BeginDying;
@@ -165,6 +180,7 @@ public class Character : MonoBehaviour
 
             case State.BeginShoot:
                 animator.SetTrigger(Shoot);
+                if (_playSound) _playSound.Play(ShootHitSoundName);
                 state = State.Shoot;
                 break;
 
