@@ -5,6 +5,7 @@ public class OptionsButton : MonoBehaviour
 {
     public CanvasGroup optionsButtonsPanel;
     public CanvasGroup buttonsPanel;
+    public CanvasGroup settings;
     enum State
     {
         Pressed,
@@ -15,6 +16,7 @@ public class OptionsButton : MonoBehaviour
     void Start()
     {
         Utility.SetCanvasGroupEnabled(optionsButtonsPanel, false);
+        Utility.SetCanvasGroupEnabled(settings, false);
         _state = State.Released;
     }
 
@@ -24,6 +26,7 @@ public class OptionsButton : MonoBehaviour
         {
             case State.Pressed:
                 Utility.SetCanvasGroupEnabled(optionsButtonsPanel, false);
+                Utility.SetCanvasGroupEnabled(settings, false);
                 Utility.SetCanvasGroupEnabled(buttonsPanel, true);
                 _state = State.Released;
                 break;
@@ -35,5 +38,11 @@ public class OptionsButton : MonoBehaviour
             default: 
                 throw new ArgumentOutOfRangeException();
         }
+    }
+
+    public void SettingsMenu(bool isActive)
+    {
+        Utility.SetCanvasGroupEnabled(optionsButtonsPanel, !isActive);
+        Utility.SetCanvasGroupEnabled(settings, isActive);
     }
 }

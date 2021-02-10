@@ -21,4 +21,14 @@ public class LevelMenuController : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void Settings()
+    {
+        optionsButton.SettingsMenu(true);
+    }
+
+    public void BackToOptions()
+    {
+        optionsButton.SettingsMenu(false);
+    }
 }
