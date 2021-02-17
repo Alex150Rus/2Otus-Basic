@@ -12,6 +12,7 @@ public class GameControllerE : MonoBehaviour
         var contexts = Contexts.sharedInstance;
         var entity = contexts.game.CreateEntity();
         entity.isPlayer = true;
+        entity.AddHealth(3.0f);
 
         systems = new Systems();
         //systems.Add(new DeathSystem(contexts));
