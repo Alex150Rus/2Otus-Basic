@@ -15,7 +15,7 @@ public class GameControllerE : MonoBehaviour
         entity.AddHealth(3.0f);
 
         systems = new Systems();
-        //systems.Add(new DeathSystem(contexts));
+        systems.Add(new DeathSystem(contexts));
         //systems.Add(new PrefabInstantiateSystem(contexts));
         //systems.Add(new ViewDestroySystem(contexts));
         //systems.Add(new PlayerInputSystem(contexts));
