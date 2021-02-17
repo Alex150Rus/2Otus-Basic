@@ -10,6 +10,7 @@ public abstract class AbstractEntity : MonoBehaviour
     {
         contexts = Contexts.sharedInstance;
         entity = contexts.game.CreateEntity();
+        Destroy(gameObject);
     }
 
 
